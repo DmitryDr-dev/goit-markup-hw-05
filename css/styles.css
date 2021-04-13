@@ -272,6 +272,25 @@ img {
   justify-content: space-between;
 }
 
+.services-item {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  bottom: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  width: 100%;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-transform: uppercase;
+  color: var(--dark-bg-text-color);
+  background: rgba(47, 48, 58, 0.8);
+}
 /* team section */
 
 .team {
@@ -330,10 +349,12 @@ img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
   fill: var(--social-icons-text-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icons-link:hover,
@@ -369,6 +390,7 @@ img {
   border-radius: 4px;
   width: 100%;
   height: 100%;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
@@ -378,6 +400,7 @@ img {
 
 .clients-icon {
   fill: var(--social-icons-text-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover .clients-icon,
@@ -395,6 +418,17 @@ img {
 .footer-container {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
+}
+
+.company-address,
+.footer-socials {
+  flex-basis: calc((50% - 45px) / 2);
+  /* outline: 1px solid red; */
+}
+
+.subscription {
+  flex-basis: calc(50% - 15px);
 }
 
 .footer-title {
@@ -410,10 +444,6 @@ img {
 .page-footer .logo {
   display: block;
   margin-bottom: 20px;
-}
-
-.company-address {
-  margin-right: 70px;
 }
 
 .address-item {
@@ -433,6 +463,12 @@ img {
 .email,
 .tel {
   color: var(--address-text-color);
+}
+
+.location,
+.email,
+.tel {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .location:hover,
@@ -477,6 +513,7 @@ img {
   color: var(--title-text-color);
   background-color: var(--secondary-bg-color);
   cursor: pointer;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn--active {
@@ -511,6 +548,7 @@ img {
   display: block;
   width: 100%;
   height: 100%;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-item-link:hover,
@@ -518,11 +556,38 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.gallery-item__desc {
+.gallery-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--dark-bg-text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(105%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item-link:hover .gallery-img-overlay,
+.gallery-item-link:focus .gallery-img-overlay {
+  transform: translateY(0%);
+}
+
+.gallery-item-meta {
   padding: 20px 24px;
 }
 
-.gallery-item__title {
+.gallery-item-title {
   margin-bottom: 4px;
   font-weight: 700;
   font-size: 18px;
@@ -531,7 +596,7 @@ img {
   color: var(--title-text-color);
 }
 
-.gallery-item__type {
+.gallery-item-type {
   font-size: 16px;
   line-height: 1.87;
 }
@@ -540,8 +605,8 @@ img {
 
 .backdrop {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
@@ -551,8 +616,9 @@ img {
 
 .modal {
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
+  padding: 8px;
   border-radius: 4px;
   width: 528px;
   height: 581px;
@@ -564,9 +630,23 @@ img {
 
 .backdrop.is-hidden {
   opacity: 0;
+  visibility: none;
   pointer-events: none;
 }
 
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(1.2);
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: var(--main-bg-color);
+  cursor: pointer;
 }

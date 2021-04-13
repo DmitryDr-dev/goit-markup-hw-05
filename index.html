@@ -128,12 +128,21 @@
         <ul class="list services-list">
           <li class="services-item">
             <img src="./images/services/img-1.jpg" alt="Разработка эффектвных решений с нуля" width="370" height="294">
+            <div class="label">
+              <p>Десктопные приложения</p>
+            </div>
           </li>
           <li class="services-item">
             <img src="./images/services/img-2.jpg" alt="Создание мобильных приложений" width="370" height="294">
+            <div class="label">
+              <p>Мобильные приложения</p>
+            </div>
           </li>
           <li class="services-item">
             <img src="./images/services/img-3.jpg" alt="Современные стандарты проектирования" width="370" height="294">
+            <div class="label">
+              <p>Дизайнерские решения</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -372,7 +381,7 @@
         </address>
       </div>
       <!-- social list -->
-      <div>
+      <div class="footer-socials">
         <h2 class="footer-title">Присоединяйтесь</h2>
         <ul class="list social-icons">
           <li class="social-icons-item">
@@ -406,14 +415,18 @@
         </ul>
       </div>
       <!-- subscription-form -->
-      <!-- <div class="subscription"></div> -->
+      <div class="subscription"></div>
     </div>
   </footer>
   <!-- /footer -->
   <!-- modal -->
   <div class="backdrop is-hidden" data-modal>
     <div class="modal">
-      <button data-modal-close>Закрыть</button>
+      <button class="modal-close" data-modal-close>
+        <svg class="icon" width="11" height="11" aria-label="Закрыть окно">
+          <use href="./images/icons/symbol-defs.svg#icon-close-modal"></use>
+        </svg>
+      </button>
     </div>
   </div>
   <!-- /modal -->
